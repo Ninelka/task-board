@@ -1,18 +1,35 @@
 import React from 'react';
 import styles from './TaskItem.module.css';
+import { Draggable } from 'react-beautiful-dnd';
 
-export interface ITaskItem {
+export interface ITask {
+  id: string;
   title: string;
   description: string;
-  id?: string;
 }
 
-const TaskItem: React.FC<ITaskItem> = ({ title, description }) => {
+interface ITaskItem extends Omit<ITask, 'index'> {
+  id: string;
+  title: string;
+  description: string;
+  index: number;
+}
+
+const TaskItem: React.FC<ITaskItem> = ({ id, index, title, description }) => {
   return (
-    <div className={styles.container}>
-      <h3 className={styles.title}>{title}</h3>
-      <p className={styles.description}>{description}</p>
-    </div>
+    <Draggable draggableId={id} index={index}>
+      {(provided) => (
+        <div
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          className={styles.container}
+        >
+          <h3 className={styles.title}>{title}</h3>
+          <p className={styles.description}>{description}</p>
+        </div>
+      )}
+    </Draggable>
   );
 };
 
