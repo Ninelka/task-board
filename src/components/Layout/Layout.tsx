@@ -6,7 +6,11 @@ import initialData from '../../initial-data';
 const Layout = () => {
   return (
     <main className={styles.container}>
-      <Column title="Нужно" items={initialData.tasks} />
+      <Column
+        title="Нужно"
+        items={initialData.tasks}
+        withNewTaskButton={true}
+      />
       <Column title="В работе" />
       <Column title="Выполнено" />
     </main>
