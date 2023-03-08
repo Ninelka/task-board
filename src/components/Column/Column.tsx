@@ -2,17 +2,23 @@ import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import styles from './Column.module.css';
 import TaskList from '../TaskList/TaskList';
-import TaskItem, { ITask } from '../TaskItem/TaskItem';
+import TaskItem from '../TaskItem/TaskItem';
 import Button from '../Button/Button';
+import { IColumn, ITask } from '../../types';
 
-interface IColumn {
+interface IColumnItem extends Omit<IColumn, 'taskIds'> {
   id: string;
   title: string;
   items?: ITask[];
   withNewTaskButton?: boolean;
 }
 
-const Column: React.FC<IColumn> = ({ id, title, items, withNewTaskButton }) => {
+const Column: React.FC<IColumnItem> = ({
+  id,
+  title,
+  items,
+  withNewTaskButton,
+}) => {
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>{title}</h2>

@@ -1,12 +1,7 @@
 import React from 'react';
 import styles from './TaskItem.module.css';
 import { Draggable } from 'react-beautiful-dnd';
-
-export interface ITask {
-  id: string;
-  title: string;
-  description: string;
-}
+import { ITask } from '../../types';
 
 interface ITaskItem extends Omit<ITask, 'index'> {
   id: string;

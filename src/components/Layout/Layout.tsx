@@ -3,7 +3,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import styles from './Layout.module.css';
 import Column from '../Column/Column';
 import initialData from '../../initial-data';
-import { ITask } from '../TaskItem/TaskItem';
+import { ITask } from '../../types';
 
 const Layout = () => {
   const onDragEndHandler = (result) => {};
