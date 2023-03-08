@@ -1,0 +1,15 @@
+.container {
+    border-radius: 8px;
+    border: 2px solid grey;
+    padding: 8px 16px;
+}
+
+.title {
+    font-size: 16px;
+    margin-top: 0;
+}
+
+.description {
+    font-size: 14px;
+    margin: 0;
+}
