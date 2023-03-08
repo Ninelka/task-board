@@ -21,6 +21,25 @@ const initialData = {
       description: 'Some random description',
     },
   ],
+  columns: [
+    {
+      id: 'ToDo',
+      title: 'Нужно',
+      taskIds: ['task-1', 'task-2', 'task-3', 'task-4'],
+    },
+    {
+      id: 'InProgress',
+      title: 'В работе',
+      taskIds: [],
+    },
+    {
+      id: 'Done',
+      title: 'Выполнено',
+      taskIds: [],
+    },
+  ],
+
+  columnOrder: ['ToDo', 'InProgress', 'Done'],
 };
 
 export default initialData;
