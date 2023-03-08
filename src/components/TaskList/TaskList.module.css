@@ -5,4 +5,5 @@
     border-radius: 8px;
     border: 2px solid green;
     padding: 8px;
+    flex: 1;
 }
