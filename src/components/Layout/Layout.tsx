@@ -2,26 +2,27 @@ import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import styles from './Layout.module.css';
 import Column from '../Column/Column';
-import initialData from '../../initial-data';
 import { ITask } from '../../types';
+import { useAppSelector } from '../../store';
 
 const Layout = () => {
-  const onDragEndHandler = (result) => {};
+  const { tasks, columns, columnOrder } = useAppSelector(
+    (state) => state.tasks
+  );
+  const onDragEndHandler = (result: any) => {};
 
   return (
     <DragDropContext onDragEnd={onDragEndHandler}>
       <main className={styles.container}>
-        {initialData.columnOrder.map((columnId) => {
-          const column = initialData.columns.find(
-            (item) => item.id === columnId
-          );
+        {columnOrder.map((columnId) => {
+          const column = columns.find((item) => item.id === columnId);
 
-          const tasks = column?.taskIds.map((taskId) =>
-            initialData.tasks.find((task) => taskId === task.id)
+          const tasksList = column?.taskIds.map((taskId) =>
+            tasks.find((task) => taskId === task.id)
           );
 
           console.log('column: ', column);
-          console.log('tasks: ', tasks);
+          console.log('tasks: ', tasksList);
 
           if (column) {
             return (
@@ -29,7 +30,7 @@ const Layout = () => {
                 key={column.id}
                 id={column.id}
                 title={column.title}
-                items={tasks as ITask[]}
+                items={tasksList as ITask[]}
                 withNewTaskButton={columnId === 'ToDo'}
               />
             );
