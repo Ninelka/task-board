@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IColumn, ITask } from '../types';
 
 interface TaskState {
@@ -55,8 +55,9 @@ const taskSlice = createSlice({
   name: 'tasks',
   initialState,
   reducers: {
-    addNewTask: (state, action) => {
+    addNewTask: (state, action: PayloadAction<ITask>) => {
       state.tasks.push(action.payload);
+      state.columns[0].taskIds.push(action.payload.id);
     },
   },
 });
