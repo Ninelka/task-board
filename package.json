@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@hookform/error-message": "^2.0.1",
+    "@hookform/resolvers": "^2.9.11",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -14,9 +16,11 @@
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.5",
     "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "yup": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
