@@ -6,6 +6,7 @@ interface IButton {
   className?: string;
   iconLeft?: string;
   iconRight?: string;
+  onClick?: () => void;
 }
 
 const Button: React.FC<IButton> = ({
@@ -14,9 +15,10 @@ const Button: React.FC<IButton> = ({
   className,
   iconLeft,
   iconRight,
+  onClick,
 }) => {
   return (
-    <button type={type} className={className}>
+    <button type={type} className={className} onClick={onClick}>
       {iconLeft && (
         <span className="me-2">
           <i className={iconLeft} />
