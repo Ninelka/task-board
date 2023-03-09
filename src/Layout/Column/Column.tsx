@@ -1,14 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import styles from './Column.module.css';
 import { IColumn, ITask } from '../../types';
-import {
-  Button,
-  EditTaskModal,
-  TaskForm,
-  TaskItem,
-  TaskList,
-} from '../../components';
+import { Button, EditTaskModal, TaskItem, TaskList } from '../../components';
 
 interface IColumnItem extends Omit<IColumn, 'taskIds'> {
   id: string;
@@ -23,6 +17,8 @@ const Column: React.FC<IColumnItem> = ({
   items,
   withNewTaskButton,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section className={styles.container}>
       <h2 className={styles.title}>{title}</h2>
@@ -43,9 +39,20 @@ const Column: React.FC<IColumnItem> = ({
         )}
       </Droppable>
       {withNewTaskButton && (
-        <Button iconLeft="bi bi-plus" className="btn btn-primary mt-2">
-          Создать задачу
-        </Button>
+        <>
+          <Button
+            iconLeft="bi bi-plus"
+            className="btn btn-primary mt-2"
+            onClick={() => setIsModalOpen((prevState) => !prevState)}
+          >
+            Создать задачу
+          </Button>
+          <EditTaskModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            title="Новая задача"
+          />
+        </>
       )}
     </section>
   );
