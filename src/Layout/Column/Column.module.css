@@ -4,6 +4,7 @@
     padding: 16px 8px;
     border-radius: 8px;
     border: 2px solid red;
+    overflow-y: auto;
 }
 
 .title {
