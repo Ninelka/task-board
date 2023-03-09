@@ -35,6 +35,7 @@ const initialState: TaskState = {
       id: 'ToDo',
       title: 'Нужно',
       taskIds: ['task-1', 'task-2', 'task-3', 'task-4'],
+      // taskIds: [],
     },
     {
       id: 'InProgress',
@@ -59,8 +60,30 @@ const taskSlice = createSlice({
       state.tasks.push(action.payload);
       state.columns[0].taskIds.push(action.payload.id);
     },
+    reorderTasks: (state, action) => {
+      const targetCol = state.columns.find(
+        (item) => item.id === action.payload.colId
+      );
+      if (targetCol) {
+        targetCol.taskIds = action.payload.newTaskIds;
+      }
+    },
+    moveTask: (state, action) => {
+      const startCol = state.columns.find(
+        (item) => item.id === action.payload.startColId
+      );
+
+      const finishCol = state.columns.find(
+        (item) => item.id === action.payload.finishColId
+      );
+
+      if (startCol && finishCol) {
+        startCol.taskIds = action.payload.newStartTaskIds;
+        finishCol.taskIds = action.payload.newFinishTaskIds;
+      }
+    },
   },
 });
 
-export const { addNewTask } = taskSlice.actions;
+export const { addNewTask, reorderTasks, moveTask } = taskSlice.actions;
 export default taskSlice.reducer;
