@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Layout } from './components';
+import Layout from './Layout/Layout';
 import { setupStore } from './store';
 
 const store = setupStore();

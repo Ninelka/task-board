@@ -1,9 +1,9 @@
 import React from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import styles from './Layout.module.css';
-import Column from '../Column/Column';
-import { ITask } from '../../types';
-import { useAppSelector } from '../../store';
+import Column from './Column/Column';
+import { ITask } from '../types';
+import { useAppSelector } from '../store';
 
 const Layout = () => {
   const { tasks, columns, columnOrder } = useAppSelector(

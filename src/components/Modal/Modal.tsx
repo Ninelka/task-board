@@ -1,4 +1,4 @@
-import Portal from '../Portal';
+import Portal from '../Portal/Portal';
 import React from 'react';
 import styles from './Modal.module.css';
 import Button from '../Button/Button';

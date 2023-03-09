@@ -1,10 +1,14 @@
 import React from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import styles from './Column.module.css';
-import TaskList from '../TaskList/TaskList';
-import TaskItem from '../TaskItem/TaskItem';
-import Button from '../Button/Button';
 import { IColumn, ITask } from '../../types';
+import {
+  Button,
+  EditTaskModal,
+  TaskForm,
+  TaskItem,
+  TaskList,
+} from '../../components';
 
 interface IColumnItem extends Omit<IColumn, 'taskIds'> {
   id: string;
