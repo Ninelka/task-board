@@ -1,23 +1,58 @@
+import React from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { v4 as uuidv4 } from 'uuid';
 import Modal, { IModalProps } from './Modal';
 import styles from './Modal.module.css';
 import Button from '../Button/Button';
-import React from 'react';
+import TaskForm from '../TaskForm/TaskForm';
+import { addNewTask, useAppDispatch } from '../../store';
+import { schema, FormData } from '../../lib/form-validation';
 
-const EditTaskModal: React.FC<IModalProps> = ({
+type EditTaskModalType = Omit<IModalProps, 'children'>;
+
+const EditTaskModal: React.FC<EditTaskModalType> = ({
   isOpen,
   title,
-  children,
   onClose,
 }) => {
+  const methods = useForm<FormData>({
+    resolver: yupResolver(schema),
+  });
+  const dispatch = useAppDispatch();
+
+  const onSubmit = (data: FormData) => {
+    dispatch(
+      addNewTask({
+        id: uuidv4(),
+        title: data.title,
+        description: data.description,
+      })
+    );
+    if (onClose) {
+      onClose();
+    }
+  };
+
   return (
     <Modal isOpen={isOpen} title={title} onClose={onClose}>
-      <div className={styles.body}>{children}</div>
-      <div className={styles.footer}>
-        <Button className="btn btn-primary">Сохранить</Button>
-        <Button className="btn btn-secondary" onClick={onClose}>
-          Закрыть
-        </Button>
-      </div>
+      <FormProvider {...methods}>
+        <div className={styles.body}>
+          <TaskForm />
+        </div>
+        <div className={styles.footer}>
+          <Button
+            type="submit"
+            className="btn btn-primary"
+            onClick={methods.handleSubmit(onSubmit)}
+          >
+            Сохранить
+          </Button>
+          <Button className="btn btn-secondary" onClick={onClose}>
+            Закрыть
+          </Button>
+        </div>
+      </FormProvider>
     </Modal>
   );
 };
