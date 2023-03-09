@@ -4,12 +4,14 @@ import styles from './Layout.module.css';
 import Column from './Column/Column';
 import { ITask } from '../types';
 import { useAppSelector } from '../store';
+import { useDrag } from '../hooks/useDrag';
 
 const Layout = () => {
   const { tasks, columns, columnOrder } = useAppSelector(
     (state) => state.tasks
   );
-  const onDragEndHandler = (result: any) => {};
+
+  const { onDragEndHandler } = useDrag();
 
   return (
     <DragDropContext onDragEnd={onDragEndHandler}>
@@ -20,9 +22,6 @@ const Layout = () => {
           const tasksList = column?.taskIds.map((taskId) =>
             tasks.find((task) => taskId === task.id)
           );
-
-          console.log('column: ', column);
-          console.log('tasks: ', tasksList);
 
           if (column) {
             return (
