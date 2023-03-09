@@ -5,11 +5,11 @@ const TaskForm = () => {
   return (
     <>
       <div className={styles.row}>
-        <label htmlFor="task-title">Название задачи</label>
+        <label htmlFor="task-title">Название</label>
         <input id="task-title" type="text" />
       </div>
       <div className={styles.row}>
-        <label htmlFor="task-description">Описание задачи</label>
+        <label htmlFor="task-description">Описание</label>
         <textarea id="task-description" rows={3} />
       </div>
     </>
