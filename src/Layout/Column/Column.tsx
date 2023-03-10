@@ -33,6 +33,7 @@ const Column: React.FC<IColumnItem> = ({
                 id={item.id}
                 title={item.title}
                 description={item.description}
+                colId={id}
               />
             ))}
             {provided.placeholder}
