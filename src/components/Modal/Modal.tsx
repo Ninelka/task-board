@@ -5,8 +5,8 @@ import Button from '../Button/Button';
 
 export interface IModalProps {
   isOpen: boolean;
+  title: string;
   onClose?: () => void;
-  title?: string;
   children: React.ReactNode;
 }
 
