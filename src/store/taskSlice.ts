@@ -1,5 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IColumn, ITask } from '../types';
+import {
+  IColumn,
+  ITask,
+  MoveTaskAction,
+  RemoveTaskAction,
+  ReorderTaskAction,
+} from '../types';
 
 interface TaskState {
   tasks: ITask[];
@@ -60,7 +66,7 @@ const taskSlice = createSlice({
       state.tasks.push(action.payload);
       state.columns[0].taskIds.push(action.payload.id);
     },
-    reorderTasks: (state, action) => {
+    reorderTasks: (state, action: PayloadAction<ReorderTaskAction>) => {
       const targetCol = state.columns.find(
         (item) => item.id === action.payload.colId
       );
@@ -68,7 +74,7 @@ const taskSlice = createSlice({
         targetCol.taskIds = action.payload.newTaskIds;
       }
     },
-    moveTask: (state, action) => {
+    moveTask: (state, action: PayloadAction<MoveTaskAction>) => {
       const startCol = state.columns.find(
         (item) => item.id === action.payload.startColId
       );
