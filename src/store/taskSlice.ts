@@ -66,6 +66,13 @@ const taskSlice = createSlice({
       state.tasks.push(action.payload);
       state.columns[0].taskIds.push(action.payload.id);
     },
+    updateTask: (state, action: PayloadAction<ITask>) => {
+      const targetTask = state.tasks.findIndex(
+        (item) => item.id === action.payload.id
+      );
+
+      state.tasks[targetTask] = action.payload;
+    },
     reorderTasks: (state, action: PayloadAction<ReorderTaskAction>) => {
       const targetCol = state.columns.find(
         (item) => item.id === action.payload.colId
@@ -88,8 +95,24 @@ const taskSlice = createSlice({
         finishCol.taskIds = action.payload.newFinishTaskIds;
       }
     },
+    removeTask: (state, action: PayloadAction<RemoveTaskAction>) => {
+      state.tasks = state.tasks.filter(
+        (item) => item.id !== action.payload.taskId
+      );
+      const targetCol = state.columns.find(
+        (item) => item.id === action.payload.colId
+      );
+
+      const newTaskIds = targetCol?.taskIds.filter(
+        (item) => item !== action.payload.taskId
+      );
+      if (targetCol && newTaskIds) {
+        targetCol.taskIds = newTaskIds;
+      }
+    },
   },
 });
 
-export const { addNewTask, reorderTasks, moveTask } = taskSlice.actions;
+export const { addNewTask, updateTask, reorderTasks, moveTask, removeTask } =
+  taskSlice.actions;
 export default taskSlice.reducer;
