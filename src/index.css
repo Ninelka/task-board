@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --spacing-xs: 8px;
+  --spacing-s: 16px;
+  --spacing-m: 24px;
+  --spacing-l: 32px;
+  --spacing-xl: 40px;
+  --spacing-xxl: 48px;
+  --spacing-xxxl: 56px;
+  --spacing-xxxxl: 64px;
+
+  --elevation-small: 0.5px 1px 1px hsl(0deg 0% 0% / 0.7);
+  --elevation-medium: 1px 2px 2px hsl(0deg 0% 0% / 0.333),
+                      2px 4px 4px hsl(0deg 0% 0% / 0.333),
+                      3px 6px 6px hsl(0deg 0% 0% / 0.333);
+  --elevation-large:  1px 2px 2px hsl(0deg 0% 0% / 0.075),
+                      2px 4px 4px hsl(0deg 0% 0% / 0.075),
+                      4px 8px 8px hsl(0deg 0% 0% / 0.075),
+                      8px 16px 16px hsl(0deg 0% 0% / 0.075),
+                      16px 32px 32px hsl(0deg 0% 0% / 0.075);
+}
