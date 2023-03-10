@@ -1,9 +1,8 @@
 .container {
     display: flex;
     flex-direction: column;
-    border-radius: 8px;
-    border: 2px solid green;
-    padding: 8px;
+    border-radius: var(--spacing-xs);
+    padding: var(--spacing-xs);
     flex: 1;
     overflow-y: auto;
 }

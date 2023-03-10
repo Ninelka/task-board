@@ -1,12 +1,14 @@
 .container {
     display: flex;
     flex-direction: column;
-    padding: 16px 8px;
-    border-radius: 8px;
-    border: 2px solid red;
+    padding: var(--spacing-s) var(--spacing-xs);
+    border-radius: var(--spacing-xs);
+    box-shadow: var(--elevation-small);
     overflow-y: auto;
 }
 
 .title {
+    font-weight: bold;
     margin-top: 0;
+    text-align: center;
 }

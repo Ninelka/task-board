@@ -1,21 +1,21 @@
 .container {
     position: relative;
     min-height: 100px;
-    border-radius: 8px;
-    border: 2px solid grey;
-    padding: 8px;
+    border-radius: var(--spacing-xs);
+    padding: var(--spacing-xs);
     background: #fff;
-    margin-bottom: 8px;
+    margin-bottom: var(--spacing-xs);
+    box-shadow: var(--elevation-medium);
 }
 
 .header {
     display: flex;
     justify-content: space-between;
-    padding-right: 24px;
+    padding-right: var(--spacing-m);
 }
 
 .title {
-    font-size: 16px;
+    font-size: var(--spacing-s);
     margin: 0;
     white-space: nowrap;
     overflow: hidden;

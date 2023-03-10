@@ -21,8 +21,8 @@ const Column: React.FC<IColumnItem> = ({
   const { isModalOpen, openModalHandler, closeModalHandler } = useModal();
 
   return (
-    <section className={styles.container}>
-      <h2 className={styles.title}>{title}</h2>
+    <section className={styles.container + ' bg-light'}>
+      <h4 className={styles.title}>{title}</h4>
       <Droppable droppableId={id} type="task">
         {(provided) => (
           <TaskList provided={provided} innerRef={provided.innerRef}>
@@ -44,7 +44,7 @@ const Column: React.FC<IColumnItem> = ({
         <>
           <Button
             iconLeft="bi bi-plus"
-            className="btn btn-primary mt-2"
+            className="btn btn-dark mt-2"
             onClick={openModalHandler}
           >
             Создать задачу
