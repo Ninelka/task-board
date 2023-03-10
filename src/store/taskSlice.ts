@@ -14,34 +14,12 @@ interface TaskState {
 }
 
 const initialState: TaskState = {
-  tasks: [
-    {
-      id: 'task-1',
-      title: 'Take out the garbage',
-      description: 'Some random description',
-    },
-    {
-      id: 'task-2',
-      title: 'Watch my favorite show',
-      description: 'Some random description',
-    },
-    {
-      id: 'task-3',
-      title: 'Charge my phone',
-      description: 'Some random description',
-    },
-    {
-      id: 'task-4',
-      title: 'Cook dinner',
-      description: 'Some random description',
-    },
-  ],
+  tasks: [],
   columns: [
     {
       id: 'ToDo',
       title: 'Нужно',
-      taskIds: ['task-1', 'task-2', 'task-3', 'task-4'],
-      // taskIds: [],
+      taskIds: [],
     },
     {
       id: 'InProgress',
