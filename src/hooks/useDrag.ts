@@ -38,9 +38,11 @@ export const useDrag = () => {
         );
       }
 
-      dispatch(
-        reorderTasks({ colId: source.droppableId, newTaskIds: newTaskIds })
-      );
+      if (newTaskIds) {
+        dispatch(
+          reorderTasks({ colId: source.droppableId, newTaskIds: newTaskIds })
+        );
+      }
     } else {
       if (startColumn && finishColumn) {
         newTaskIds = moveTaskToAnotherColumn(
