@@ -33,10 +33,10 @@ const EditTaskModal: React.FC<EditTaskModalType> = ({
     openConfirmationModalHandler,
     closeConfirmationModalHandler,
   } = useModal();
-  const { tasks } = useAppSelector((state) => state.tasks);
+  const { tasks } = useAppSelector((state) => state.tasks) || [];
   const dispatch = useAppDispatch();
 
-  const currentTask = tasks.find((task) => task.id === taskId);
+  const currentTask = tasks?.find((task) => task.id === taskId);
 
   const methods = useForm<FormData>({
     resolver: yupResolver(schema),
@@ -52,6 +52,7 @@ const EditTaskModal: React.FC<EditTaskModalType> = ({
 
     dispatch(
       updateTask({
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         id: data.id!,
         title: data.title,
         description: data.description,
