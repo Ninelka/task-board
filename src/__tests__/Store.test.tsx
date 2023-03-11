@@ -5,7 +5,7 @@ import TaskSlice, {
   reorderTasks,
   moveTask,
   removeTask,
-} from '../taskSlice';
+} from '../store/taskSlice';
 
 describe('TaskSlice', () => {
   test('initialize slice with initialValue', () => {
