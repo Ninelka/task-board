@@ -23,7 +23,7 @@ describe('TaskSlice', () => {
     const afterReducerOperation = TaskSlice(initialState, addNewTask(testData));
 
     expect(afterReducerOperation.tasks).toStrictEqual([testData]);
-    expect(afterReducerOperation.columns.at(0).taskIds).toStrictEqual([
+    expect(afterReducerOperation.columns.at(0)?.taskIds).toStrictEqual([
       testData.id,
     ]);
   });
