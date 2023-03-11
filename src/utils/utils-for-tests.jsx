@@ -10,7 +10,7 @@ export function renderWithProviders(
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = configureStore({
-      reducer: { tasks: TaskSlice.reducer },
+      reducer: { tasks: TaskSlice },
       preloadedState,
     }),
     ...renderOptions
