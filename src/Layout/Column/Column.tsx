@@ -21,7 +21,7 @@ const Column: React.FC<IColumnItem> = ({
   const { isModalOpen, openModalHandler, closeModalHandler } = useModal();
 
   return (
-    <section className={styles.container + ' bg-light'}>
+    <section className={styles.container + ' bg-light'} data-testid="column">
       <h4 className={styles.title}>{title}</h4>
       <Droppable droppableId={id} type="task">
         {(provided) => (
