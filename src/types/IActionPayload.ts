@@ -9,8 +9,3 @@ export interface MoveTaskAction {
   newStartTaskIds: string[];
   newFinishTaskIds: string[];
 }
-
-export interface RemoveTaskAction {
-  colId: string;
-  taskId: string;
-}

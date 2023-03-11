@@ -75,7 +75,7 @@ const TaskItem: React.FC<ITaskItem> = ({
               <ConfirmationModal
                 isOpen={isConfirmationModalOpen}
                 onConfirm={() => {
-                  dispatch(removeTask({ colId: colId, taskId: id }));
+                  dispatch(removeTask(id));
                   closeConfirmationModalHandler();
                 }}
                 onClose={closeConfirmationModalHandler}
