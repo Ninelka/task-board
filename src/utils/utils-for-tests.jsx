@@ -1,3 +1,4 @@
+import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
 import { configureStore } from '@reduxjs/toolkit';
@@ -17,7 +18,6 @@ export function renderWithProviders(
 ) {
   // eslint-disable-next-line react/prop-types
   function Wrapper({ children }) {
-    // eslint-disable-next-line react/react-in-jsx-scope
     return <Provider store={store}>{children}</Provider>;
   }
 
