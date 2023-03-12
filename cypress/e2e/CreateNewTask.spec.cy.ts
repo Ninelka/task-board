@@ -11,12 +11,14 @@ describe('Процесс создания новой задачи', () => {
     cy.get('button').contains('Создать задачу').click();
     cy.get('h5').contains('Новая задача').should('be.visible');
     cy.get('.btn-close').click();
+    cy.get('.modal-title').should('not.exist');
   });
 
   it('Клик по кнопке "Закрыть" закрывает модальное окно', () => {
     cy.get('button').contains('Создать задачу').click();
     cy.get('h5').contains('Новая задача').should('be.visible');
     cy.get('button').contains('Закрыть').click();
+    cy.get('.modal-title').should('not.exist');
   });
 
   it('Если ввести название и описание задачи и нажать на кнопку "Сохранить", то создастся карточка', () => {
