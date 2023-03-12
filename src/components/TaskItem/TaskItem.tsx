@@ -40,6 +40,7 @@ const TaskItem: React.FC<ITaskItem> = ({
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           className={styles.container}
+          data-name="task-item"
         >
           <header className={styles.header}>
             <h5 className="m-0 text-truncate">{title}</h5>
