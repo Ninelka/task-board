@@ -1,4 +1,4 @@
-describe('Create New Task Process', () => {
+describe('Процесс создания новой задачи', () => {
   beforeEach(() => {
     cy.visit('/');
   });
