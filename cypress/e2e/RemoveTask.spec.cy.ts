@@ -1,4 +1,4 @@
-describe('Remove task', () => {
+describe('Удаление задачи', () => {
   beforeEach(() => {
     cy.visit('/');
   });
